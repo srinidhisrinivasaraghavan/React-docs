@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-class App extends Component {
+class Timer extends Component {
   constructor(props) {
     super(props);
 
@@ -10,8 +10,12 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    setInterval(this.tick, 1000);
+  componentDidMount = () => {
+    this.timer = setInterval(this.tick, 1000);
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer)
   }
 
   tick = () => {
@@ -33,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Timer;
